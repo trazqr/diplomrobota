@@ -1,0 +1,239 @@
+.hero {
+  height: 100vh;
+  min-height: 700px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.55)),
+    url('../assets/home_hero_bg.jpg') center top / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.hero::after,
+.rules-hero::after,
+.campaigns-hero::after,
+.news-hero::after,
+.articles-hero::after,
+.characters-hero::after,
+.clans-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 92px;
+  background: var(--bg-dark);
+  z-index: 3;
+  pointer-events: none;
+  clip-path: polygon(
+    0 100%,
+    100% 100%,
+    100% 44%,
+    95% 66%,
+    90% 38%,
+    86% 59%,
+    81% 32%,
+    76% 62%,
+    71% 40%,
+    66% 70%,
+    61% 46%,
+    56% 74%,
+    51% 49%,
+    46% 78%,
+    41% 54%,
+    36% 34%,
+    31% 64%,
+    26% 42%,
+    21% 70%,
+    16% 48%,
+    11% 76%,
+    6% 44%,
+    0 66%
+  );
+}
+
+.hero::before,
+.rules-hero::before,
+.campaigns-hero::before,
+.news-hero::before,
+.articles-hero::before,
+.characters-hero::before,
+.clans-hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(to top, rgba(33, 32, 33, 0.85), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-content {
+  max-width: 900px;
+  z-index: 4;
+  position: relative;
+  margin-top: 50px;
+}
+
+.hero h1 {
+  font-size: var(--fs-1);
+  margin-bottom: 20px;
+  letter-spacing: 0.04em;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+.hero p {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
+  margin-bottom: 10px;
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-section {
+  background-color: var(--bg-dark);
+  padding: 80px 10%;
+  position: relative;
+  z-index: 3;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.about-image {
+  flex: 1;
+  background: url('../assets/about_hero.jpg') center / cover no-repeat;
+  background-color: var(--bg-darker);
+  min-height: 350px;
+  border-radius: var(--radius);
+  border: 2px solid #444;
+  box-shadow: var(--shadow);
+}
+
+.about-text {
+  flex: 1;
+}
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+
+.news-section {
+  background-color: var(--bg-dark);
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.news-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.news-grid {
+  display: grid;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.news-card {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-color: var(--bg-darker);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition);
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+.news-card.large {
+  grid-column: span 3;
+  min-height: 300px;
+}
+.news-card.small {
+  grid-column: span 2;
+  min-height: 250px;
+}
+
+.news-card-content {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.6) 60%,
+    transparent 100%
+  );
+  padding: 20px;
+  width: 100%;
+}
+
+.news-card-content h3 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.news-card-content p {
+  font-size: 0.85rem;
+  color: #d1d1d1;
+  line-height: 1.4;
+}
+
+.bg-2 {
+  background-image: url('../assets/goblin_tavern.jpg');
+}
+.bg-3 {
+  background-image: url('../assets/illithid_lair.jpg');
+}
+.bg-4 {
+  background-image: url('../assets/blue_dragon.png');
+}
+.bg-5 {
+  background-image: url('../assets/soldiers_snow.png');
+}
+
+.cta-section {
+  padding: 100px 5%;
+  text-align: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('../assets/dungeon_hall.png') center / cover fixed;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.cta-section p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.cta-btn-wrap {
+  display: inline-block;
+}

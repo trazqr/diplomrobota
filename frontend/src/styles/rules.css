@@ -1,0 +1,172 @@
+.rules-hero {
+  height: 100vh;
+  min-height: 700px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url('../assets/rules_hero_bg.jpg') center top / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.rules-hero h1 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-1);
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.95);
+  line-height: 1.3;
+  text-transform: uppercase;
+  z-index: 2;
+  position: relative;
+}
+
+.rules-section {
+  background-color: #1e1e1e;
+  padding: 80px 10%;
+  position: relative;
+  z-index: 3;
+}
+
+.cc-image {
+  flex: 1;
+  background: url('../assets/goblin_tavern.png') center / cover no-repeat;
+  background-color: var(--bg-darker);
+
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  border-radius: var(--radius);
+  border: 2px solid var(--gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.rules-boxes-section {
+  background-color: #121212;
+  padding: 80px 10%;
+}
+
+.rules-box {
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: rgba(26, 26, 26, 0.7);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.rules-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px var(--gold-glow);
+}
+
+.rules-box-content {
+  flex: 1;
+  padding-right: 40px;
+  text-align: left;
+}
+.rules-box-content h3 {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.rules-box-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+
+.rules-box-img {
+  width: 320px;
+  height: 180px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--gold);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.forbidden-section {
+  background-color: var(--bg-darker);
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.forbidden-section h2 {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 50px;
+}
+
+.forbidden-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.forbidden-card {
+  background-color: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.forbidden-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px var(--danger-glow);
+}
+
+.fc-image-container {
+  height: 220px;
+  width: 100%;
+  overflow: hidden;
+}
+.fc-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.rules-box-img[data-art='ranger_green'],
+.fc-image[data-art='white_hair_warrior'] {
+  object-position: 50% 16%;
+}
+
+.rules-box-img[data-art='dungeon_hall'] {
+  object-position: 50% 82%;
+}
+.forbidden-card:hover .fc-image {
+  transform: scale(1.05);
+}
+
+.fc-content {
+  padding: 25px;
+  flex-grow: 1;
+}
+.fc-content h3 {
+  font-size: 1.15rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.fc-content p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+}

@@ -1,0 +1,53 @@
+{
+  "name": "dnd-forum-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Experimental Electron shell around the DnD Forum frontend and API",
+  "author": "Danil Khodyrev",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --win --dir"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^26.15.3"
+  },
+  "allowScripts": {
+    "electron@33.4.11": true
+  },
+  "build": {
+    "appId": "com.dndforum.desktop",
+    "productName": "Dungeons and Dragons Forum",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "icon.png",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../frontend/dist",
+        "to": "frontend"
+      },
+      {
+        "from": "../backend",
+        "to": "backend",
+        "filter": [
+          "**/*",
+          "!bin/**",
+          "!obj/**",
+          "!*.db",
+          "!*.db-shm",
+          "!*.db-wal"
+        ]
+      }
+    ],
+    "win": {
+      "target": "dir",
+      "icon": "icon.ico"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.news-custom-card.is-clickable,
+.news-card.is-clickable {
+  cursor: pointer;
+}
+
+.news-custom-card.is-clickable:hover,
+.news-card.is-clickable:hover {
+  transform: translateY(-4px);
+}
+
+.news-custom-card.is-clickable:focus-visible,
+.news-card.is-clickable:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}

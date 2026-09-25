@@ -1,0 +1,169 @@
+CREATE TABLE IF NOT EXISTS Users (
+    Id INTEGER NOT NULL CONSTRAINT PK_Users PRIMARY KEY AUTOINCREMENT,
+    Login TEXT COLLATE NOCASE NOT NULL,
+    PasswordHash TEXT NOT NULL,
+    Name TEXT NOT NULL,
+    Role TEXT NOT NULL,
+    CharClass TEXT NOT NULL,
+    Race TEXT NOT NULL,
+    Level INTEGER NOT NULL,
+    Bio TEXT NOT NULL,
+    Avatar TEXT NOT NULL,
+    CreatedAt TEXT NOT NULL,
+    Cursor TEXT NOT NULL DEFAULT '',
+    IsOwner INTEGER NOT NULL DEFAULT 0,
+    IsBanned INTEGER NOT NULL DEFAULT 0,
+    BanReason TEXT NOT NULL DEFAULT '',
+    BannedAt TEXT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS IX_Users_Login ON Users (Login);
+
+CREATE TABLE IF NOT EXISTS Sessions (
+    Id INTEGER NOT NULL CONSTRAINT PK_Sessions PRIMARY KEY AUTOINCREMENT,
+    Token TEXT NOT NULL,
+    UserId INTEGER NOT NULL,
+    CreatedAt TEXT NOT NULL,
+    ExpiresAt TEXT NOT NULL,
+    CONSTRAINT FK_Sessions_Users_UserId
+        FOREIGN KEY (UserId) REFERENCES Users (Id) ON DELETE CASCADE
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS IX_Sessions_Token ON Sessions (Token);
+CREATE INDEX IF NOT EXISTS IX_Sessions_UserId ON Sessions (UserId);
+CREATE INDEX IF NOT EXISTS IX_Sessions_ExpiresAt ON Sessions (ExpiresAt);
+
+CREATE TABLE IF NOT EXISTS Articles (
+    Id INTEGER NOT NULL CONSTRAINT PK_Articles PRIMARY KEY AUTOINCREMENT,
+    Title TEXT NOT NULL,
+    Category TEXT NOT NULL,
+    Content TEXT NOT NULL,
+    Format TEXT NOT NULL,
+    CoverImage TEXT NOT NULL,
+    AuthorId INTEGER NOT NULL,
+    CreatedAt TEXT NOT NULL,
+    UpdatedAt TEXT NULL,
+    CONSTRAINT FK_Articles_Users_AuthorId
+        FOREIGN KEY (AuthorId) REFERENCES Users (Id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS IX_Articles_AuthorId ON Articles (AuthorId);
+CREATE INDEX IF NOT EXISTS IX_Articles_Category ON Articles (Category);
+CREATE INDEX IF NOT EXISTS IX_Articles_CreatedAt ON Articles (CreatedAt);
+
+CREATE TABLE IF NOT EXISTS ArticleLikes (
+    ArticleId INTEGER NOT NULL,
+    UserId INTEGER NOT NULL,
+    CreatedAt TEXT NOT NULL,
+    CONSTRAINT PK_ArticleLikes PRIMARY KEY (ArticleId, UserId),
+    CONSTRAINT FK_ArticleLikes_Articles_ArticleId
+        FOREIGN KEY (ArticleId) REFERENCES Articles (Id) ON DELETE CASCADE,
+    CONSTRAINT FK_ArticleLikes_Users_UserId
+        FOREIGN KEY (UserId) REFERENCES Users (Id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS IX_ArticleLikes_UserId ON ArticleLikes (UserId);
+
+CREATE TABLE IF NOT EXISTS News (
+    Id INTEGER NOT NULL CONSTRAINT PK_News PRIMARY KEY AUTOINCREMENT,
+    ImageKey TEXT NOT NULL,
+    TitleUa TEXT NOT NULL,
+    TitleEn TEXT NOT NULL,
+    DescUa TEXT NOT NULL,
+    DescEn TEXT NOT NULL,
+    Section TEXT NOT NULL,
+    BgPos TEXT NOT NULL,
+    SortOrder INTEGER NOT NULL,
+    PublishedAt TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS IX_News_Section_SortOrder ON News (Section, SortOrder);
+
+CREATE TABLE IF NOT EXISTS Comments (
+    Id INTEGER NOT NULL CONSTRAINT PK_Comments PRIMARY KEY AUTOINCREMENT,
+    TargetType TEXT NOT NULL,
+    TargetId INTEGER NOT NULL,
+    ParentId INTEGER NULL,
+    Body TEXT NOT NULL,
+    AuthorId INTEGER NOT NULL,
+    CreatedAt TEXT NOT NULL,
+    IsDeleted INTEGER NOT NULL,
+    CONSTRAINT FK_Comments_Users_AuthorId
+        FOREIGN KEY (AuthorId) REFERENCES Users (Id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS IX_Comments_AuthorId ON Comments (AuthorId);
+CREATE INDEX IF NOT EXISTS IX_Comments_TargetType_TargetId_CreatedAt
+    ON Comments (TargetType, TargetId, CreatedAt);
+CREATE INDEX IF NOT EXISTS IX_Comments_ParentId ON Comments (ParentId);
+
+CREATE TABLE IF NOT EXISTS Presets (
+    Id INTEGER NOT NULL CONSTRAINT PK_Presets PRIMARY KEY AUTOINCREMENT,
+    Slug TEXT NOT NULL,
+    NameUa TEXT NOT NULL,
+    NameEn TEXT NOT NULL,
+    ClassUa TEXT NOT NULL,
+    ClassEn TEXT NOT NULL,
+    RaceUa TEXT NOT NULL,
+    RaceEn TEXT NOT NULL,
+    Level INTEGER NOT NULL,
+    DescUa TEXT NOT NULL,
+    DescEn TEXT NOT NULL,
+    AvatarKey TEXT NOT NULL,
+    BgKey TEXT NOT NULL,
+    Str INTEGER NOT NULL,
+    Dex INTEGER NOT NULL,
+    Con INTEGER NOT NULL,
+    Int INTEGER NOT NULL,
+    Wis INTEGER NOT NULL,
+    Cha INTEGER NOT NULL,
+    SpellsUa TEXT NOT NULL,
+    SpellsEn TEXT NOT NULL,
+    SortOrder INTEGER NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS IX_Presets_Slug ON Presets (Slug);
+CREATE INDEX IF NOT EXISTS IX_Presets_SortOrder ON Presets (SortOrder);
+
+CREATE TABLE IF NOT EXISTS Campaigns (
+    Id INTEGER NOT NULL CONSTRAINT PK_Campaigns PRIMARY KEY AUTOINCREMENT,
+    Slug TEXT NOT NULL,
+    TitleUa TEXT NOT NULL,
+    TitleEn TEXT NOT NULL,
+    DescUa TEXT NOT NULL,
+    DescEn TEXT NOT NULL,
+    BtnUa TEXT NOT NULL,
+    BtnEn TEXT NOT NULL,
+    TagUa TEXT NOT NULL,
+    TagEn TEXT NOT NULL,
+    ImageKey TEXT NOT NULL,
+    BgPos TEXT NOT NULL,
+    LocationUa TEXT NOT NULL,
+    LocationEn TEXT NOT NULL,
+    PartySize TEXT NOT NULL,
+    DmNotesUa TEXT NOT NULL,
+    DmNotesEn TEXT NOT NULL,
+    HighlightsUa TEXT NOT NULL,
+    HighlightsEn TEXT NOT NULL,
+    SortOrder INTEGER NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS IX_Campaigns_Slug ON Campaigns (Slug);
+CREATE INDEX IF NOT EXISTS IX_Campaigns_SortOrder ON Campaigns (SortOrder);
+
+CREATE TABLE IF NOT EXISTS RuleCards (
+    Id INTEGER NOT NULL CONSTRAINT PK_RuleCards PRIMARY KEY AUTOINCREMENT,
+    Slug TEXT NOT NULL,
+    Section TEXT NOT NULL,
+    TitleUa TEXT NOT NULL,
+    TitleEn TEXT NOT NULL,
+    DescUa TEXT NOT NULL,
+    DescEn TEXT NOT NULL,
+    ImageKey TEXT NOT NULL,
+    Alt TEXT NOT NULL,
+    SortOrder INTEGER NOT NULL
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS IX_RuleCards_Slug ON RuleCards (Slug);
+CREATE INDEX IF NOT EXISTS IX_RuleCards_Section_SortOrder
+    ON RuleCards (Section, SortOrder);

@@ -1,0 +1,112 @@
+:root {
+  --motion-fast: 160ms;
+
+  --motion-enter: 340ms;
+
+  --motion-page: 420ms;
+  --motion-overlay: 200ms;
+  --motion-ease: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.modal-backdrop,
+.modal-overlay {
+  opacity: 0;
+  transition: opacity var(--motion-overlay) var(--motion-ease);
+}
+
+.modal-backdrop.is-entered,
+.modal-overlay.is-entered {
+  opacity: 1;
+}
+
+.modal-overlay .modal-box {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0) scale(0.98);
+  transition:
+    opacity var(--motion-overlay) var(--motion-ease),
+    transform var(--motion-overlay) var(--motion-ease);
+}
+
+.modal-overlay.is-entered .modal-box {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.user-menu-drop {
+  opacity: 0;
+  transform: translate3d(0, -6px, 0) scale(0.98);
+  transform-origin: top right;
+  pointer-events: none;
+  transition:
+    opacity var(--motion-fast) var(--motion-ease),
+    transform var(--motion-fast) var(--motion-ease);
+}
+
+.user-menu-drop.is-entered {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  pointer-events: auto;
+}
+
+.modal-backdrop .modal-content {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0) scale(0.98);
+  transition:
+    opacity var(--motion-overlay) var(--motion-ease),
+    transform var(--motion-overlay) var(--motion-ease);
+}
+
+.modal-backdrop.is-entered .modal-content {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 14px, 0);
+  transition:
+    opacity var(--motion-enter) var(--motion-ease),
+    transform var(--motion-enter) var(--motion-ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.page-enter {
+  animation: page-in var(--motion-page) var(--motion-ease) backwards;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+
+  .page-enter {
+    animation: none;
+  }
+
+  .modal-backdrop,
+  .modal-backdrop .modal-content,
+  .modal-overlay,
+  .modal-overlay .modal-box,
+  .user-menu-drop {
+    transition: none;
+  }
+}

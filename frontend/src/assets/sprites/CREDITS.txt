@@ -1,0 +1,21 @@
+Characters and weapons: "16x16 DungeonTileset II" v1.7 by 0x72
+Source:  https://0x72.itch.io/dungeontileset-ii
+License: CC0 (public domain) - stated by the author on the page above.
+
+Character files are run and idle animation frames, each laid out as a
+horizontal strip of four frames. shot-arrow.png is the weapon_arrow tile
+from the same set. lizard-idle.png and lizard-run.png are the lizard_m
+frames from the same set.
+
+Dragon: "Flying Dragon (rework)" - dragon2.png
+Source:  https://opengameart.org/content/flying-dragon-rework
+License: CC-BY 3.0 - https://creativecommons.org/licenses/by/3.0/
+ATTRIBUTION REQUIRED - the notice below must stay with these sprites:
+  Created by ZaPaper & Jordan Irwin (AntumDeluge)
+  Credits to http://www.buko-studios.com/
+  Commissioned by PlayCraft: https://www.playcraftapp.com/
+Taken from flying_dragon-red-RGB.png: the east-facing row (3 frames),
+cropped to the opaque bounds. No recolouring or mirroring.
+
+Fireball: "Fire Ball Pixel" - shot-fire.gif
+License: CC0 (public domain).

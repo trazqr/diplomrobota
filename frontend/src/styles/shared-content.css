@@ -1,0 +1,14 @@
+.hero-subtitle {
+  color: var(--text-dim);
+  font-size: var(--fs-body);
+  max-width: 62ch;
+  margin: 15px auto 0;
+  position: relative;
+  z-index: 4;
+}
+.section-title {
+  font-size: var(--fs-2);
+  text-align: center;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}

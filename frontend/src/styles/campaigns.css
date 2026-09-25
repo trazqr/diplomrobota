@@ -1,0 +1,231 @@
+.campaigns-hero {
+  height: 100vh;
+  min-height: 600px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.campaigns-hero h1 {
+  font-size: var(--fs-1);
+  color: #fff;
+  letter-spacing: 0.06em;
+  z-index: 4;
+  position: relative;
+}
+
+.camp-feature-section {
+  background-color: var(--bg-dark);
+  padding: 80px 10%;
+}
+
+.camp-feature-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.camp-feature-row:last-child {
+  margin-bottom: 0;
+}
+
+.camp-feature-text {
+  flex: 1;
+}
+.camp-feature-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.camp-feature-text p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+
+.camp-feature-img {
+  flex: 1;
+  min-height: 320px;
+  border-radius: var(--radius);
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #444;
+  box-shadow: var(--shadow);
+}
+
+.camp-explore-section {
+  padding: 120px 5%;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.camp-explore-overlay {
+  width: 100%;
+}
+
+.camp-explore-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px;
+  border: 2px solid var(--gold);
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.camp-explore-text h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.camp-explore-text p {
+  color: var(--text-dim);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.camp-list-section {
+  background-color: var(--bg-dark);
+  padding: 80px 10%;
+}
+
+.camp-list-title {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.camp-card {
+  display: flex;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 40px;
+  background-color: #1c1c1c;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.camp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  border-color: var(--gold);
+}
+
+.camp-card-img {
+  width: 260px;
+  min-height: 200px;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.camp-card-body {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.camp-card-meta {
+  margin-bottom: 12px;
+}
+
+.camp-tag {
+  background-color: var(--gold);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.camp-card-body h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.camp-card-body p {
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.camp-btn {
+  align-self: flex-start;
+}
+
+.campaign-modal {
+  max-width: 650px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.camp-modal-header {
+  height: 220px;
+  background-size: cover;
+  position: relative;
+}
+
+.camp-modal-header-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--bg-card) 15%, rgba(0, 0, 0, 0.4) 100%);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.camp-modal-body {
+  padding: 25px;
+}
+
+.camp-modal-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+  background: var(--bg-darker);
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.info-label {
+  font-weight: bold;
+  color: var(--gold);
+  margin-right: 6px;
+}
+
+.camp-modal-body h4 {
+  color: var(--gold);
+  margin: 18px 0 8px;
+}
+
+.camp-modal-highlights {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.camp-modal-highlights li {
+  padding: 6px 0;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+.camp-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-subtle);
+}

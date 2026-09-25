@@ -1,0 +1,587 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  padding: 24px;
+  background: rgba(12, 11, 12, 0.78);
+  backdrop-filter: blur(3px);
+
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.modal-content {
+  margin: auto;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.preset-detail-header {
+  background-position: center top;
+}
+
+.articles-hero-eyebrow {
+  display: inline-block;
+  color: var(--accent-strong);
+  opacity: 1;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  background: rgba(20, 19, 20, 0.72);
+  border: 1px solid rgba(143, 154, 62, 0.45);
+  border-radius: 3px;
+  backdrop-filter: blur(3px);
+}
+
+.hero h1,
+.rules-hero h1,
+.campaigns-hero h1,
+.news-hero h1,
+.articles-hero h1,
+.characters-hero h1,
+.clans-hero h1,
+.camp-card-body h3,
+.news-card-content h3,
+.hero-card-body h3,
+.preset-card-name,
+.camp-modal-header h2 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.camp-card {
+  position: relative;
+  background: var(--cream);
+  border: none;
+  border-radius: 0;
+  margin-bottom: 34px;
+  padding-right: 74px;
+  clip-path: polygon(0 0, calc(100% - 74px) 0, 100% 50%, calc(100% - 74px) 100%, 0 100%);
+  transition:
+    transform var(--transition),
+    filter var(--transition);
+}
+
+.camp-card:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.04);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.camp-card-img {
+  width: 300px;
+  min-height: 240px;
+  position: relative;
+}
+
+.camp-card-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 30%, var(--cream) 97%);
+}
+
+.camp-card-body {
+  padding: 34px 30px;
+}
+
+.camp-card-body h3 {
+  color: #221f1a;
+  font-size: var(--fs-3);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.camp-card-body p {
+  color: #4a463d;
+}
+
+.camp-tag {
+  background: none;
+  color: #5d5a2a;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 0;
+  letter-spacing: 0.08em;
+}
+
+.nav-burger:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+.camp-list-title {
+  font-size: var(--fs-2);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.camp-explore-section {
+  background-image:
+    linear-gradient(rgba(20, 19, 20, 0.72), rgba(20, 19, 20, 0.82)),
+    url('../assets/illithid_lair.jpg');
+  background-repeat: no-repeat;
+}
+
+.camp-explore-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 40px;
+  background: rgba(20, 19, 20, 0.55);
+  border: 1px solid var(--accent);
+  backdrop-filter: blur(2px);
+}
+
+.camp-explore-text h2 {
+  font-size: var(--fs-3);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.camp-explore-text p {
+  color: var(--text-dim);
+  max-width: 62ch;
+  margin: 0 auto;
+}
+
+.home-chars-section {
+  background-color: var(--bg-dark);
+  padding: 80px 5%;
+}
+
+.presets-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.presets-track {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 6px 2px 22px;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+.presets-track::-webkit-scrollbar {
+  height: 6px;
+}
+.presets-track::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+.presets-track::-webkit-scrollbar-track {
+  background: var(--border-subtle);
+}
+
+.presets-track > * {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+}
+
+.carousel-arrow {
+  flex-shrink: 0;
+}
+
+.hero-card,
+.preset-card {
+  background: var(--cream);
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  clip-path: polygon(
+    20px 0,
+    100% 0,
+    100% calc(100% - 20px),
+    calc(100% - 20px) 100%,
+    0 100%,
+    0 20px
+  );
+  transition:
+    transform var(--transition),
+    filter var(--transition);
+}
+
+.hero-card:hover,
+.preset-card:hover {
+  transform: translateY(-6px);
+  filter: brightness(1.04);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.hero-card-img,
+.preset-card-avatar {
+  height: 210px;
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  border-bottom: 3px solid var(--accent);
+}
+
+.hero-card-level,
+.preset-level-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.hero-card-body,
+.preset-card-content {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.hero-card-body h3,
+.preset-card-name {
+  color: #221f1a;
+  font-family: var(--font-heading);
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.hero-card-meta {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5d5a2a;
+}
+
+.hero-card-desc,
+.preset-desc {
+  color: #4a463d;
+  font-size: 15px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.preset-card .badge {
+  background: rgba(120, 129, 52, 0.14);
+  color: #4a463d;
+  border: 1px solid rgba(120, 129, 52, 0.4);
+}
+
+.preset-card .preset-card-actions {
+  gap: 10px;
+}
+
+.nav-burger {
+  display: none;
+  position: absolute;
+  top: 26px;
+  left: 22px;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 9px;
+  background: rgba(20, 19, 20, 0.55);
+  border: 1px solid rgba(234, 229, 217, 0.22);
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 120;
+}
+
+.nav-burger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--cream);
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease;
+}
+
+.navbar.menu-open .nav-burger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.navbar.menu-open .nav-burger span:nth-child(2) {
+  opacity: 0;
+}
+.navbar.menu-open .nav-burger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-mobile-actions {
+  display: none;
+}
+
+.footer-container {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.footer-column:nth-of-type(1) {
+  margin-left: auto;
+}
+.footer-column ul li a:hover {
+  color: var(--accent-strong);
+}
+
+@media (max-width: 1024px) {
+  .navbar nav ul {
+    gap: 24px;
+  }
+  .navbar nav ul li a {
+    font-size: 13px;
+  }
+  .about-container {
+    gap: 32px;
+  }
+  .camp-card-img {
+    width: 230px;
+  }
+  .presets-track > * {
+    flex-basis: 270px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --fs-1: 50px;
+    --fs-2: 41px;
+    --fs-3: 20px;
+    --fs-body: 16px;
+  }
+
+  .navbar {
+    padding: 20px;
+    justify-content: flex-end;
+  }
+  .nav-burger {
+    display: flex;
+  }
+
+  .navbar .nav-cta {
+    display: none;
+  }
+
+  .navbar nav {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 19, 20, 0.97);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-100%);
+    transition:
+      transform 0.3s ease,
+      visibility 0.3s ease;
+    z-index: 110;
+  }
+
+  .navbar nav {
+    visibility: hidden;
+  }
+  .navbar nav.is-open {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .navbar nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    margin: 0;
+    padding: 0 24px;
+  }
+
+  .navbar nav ul li a {
+    font-size: 18px;
+    padding: 8px 0;
+    display: block;
+  }
+
+  .nav-mobile-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+    margin-top: 12px;
+  }
+
+  .nav-mobile-lead {
+    margin-top: 0;
+  }
+
+  .hero,
+  .rules-hero,
+  .campaigns-hero,
+  .news-hero,
+  .articles-hero,
+  .clans-hero {
+    height: auto;
+    min-height: 68vh;
+    padding: 120px 20px 90px;
+  }
+
+  .hero::after,
+  .rules-hero::after,
+  .campaigns-hero::after,
+  .news-hero::after,
+  .articles-hero::after,
+  .characters-hero::after,
+  .clans-hero::after {
+    height: 54px;
+  }
+
+  .hero-content {
+    margin-top: 0;
+    padding: 0 4px;
+  }
+
+  .about-section,
+  .rules-section,
+  .rules-boxes-section,
+  .forbidden-section,
+  .camp-feature-section,
+  .camp-list-section,
+  .home-chars-section,
+  .news-section,
+  .main-news-section,
+  .cta-section,
+  .articles-body-section,
+  .char-content-wrapper {
+    padding: 52px 20px;
+  }
+
+  .about-container,
+  .camp-feature-row,
+  .rules-box {
+    flex-direction: column;
+    gap: 24px;
+    text-align: left;
+  }
+
+  .about-image,
+  .camp-feature-img {
+    width: 100%;
+    min-height: 220px;
+  }
+
+  .cc-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .rules-box-content {
+    padding-right: 0;
+  }
+  .rules-box-img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .forbidden-grid,
+  .news-grid,
+  .presets-grid,
+  .profile-stats-grid,
+  .profile-recent-grid,
+  .articles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-card {
+    min-height: 260px;
+  }
+
+  .camp-card {
+    flex-direction: column;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%);
+    padding-right: 0;
+  }
+
+  .camp-card-img {
+    width: 100%;
+    min-height: 190px;
+  }
+  .camp-card-img::after {
+    background: linear-gradient(to bottom, transparent 40%, var(--cream) 98%);
+  }
+  .camp-card-body {
+    padding: 22px 20px 26px;
+  }
+
+  .presets-track {
+    gap: 18px;
+    padding-bottom: 16px;
+  }
+  .presets-track > * {
+    flex-basis: 82%;
+  }
+
+  .char-nav-tabs {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .char-nav-tabs .btn {
+    width: 100%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .footer-column:nth-of-type(1) {
+    margin-left: 0;
+  }
+
+  .form-group-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .modal-backdrop {
+    padding: 14px;
+  }
+  .camp-modal-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .articles-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .presets-track > * {
+    flex-basis: 90%;
+  }
+  .camp-modal-info-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero,
+  .rules-hero,
+  .campaigns-hero,
+  .news-hero,
+  .articles-hero,
+  .clans-hero {
+    padding: 100px 16px 70px;
+  }
+}

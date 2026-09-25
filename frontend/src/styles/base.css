@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Forum&display=swap');
+
+:root {
+  --font-heading: 'Anonymous Pro', ui-monospace, 'Cascadia Mono', 'Courier New', monospace;
+  --font-body: 'Museo Cyrl', 'Mulish', system-ui, sans-serif;
+
+  --font-display: 'Forum', Georgia, serif;
+
+  --accent: #788134;
+  --accent-strong: #8f9a3e;
+  --accent-dark: #565d25;
+
+  --accent-fill: #6b7430;
+  --accent-fill-hover: #5c6429;
+  --accent-glow: rgba(120, 129, 52, 0.4);
+
+  --danger-glow: rgba(196, 58, 30, 0.55);
+  --cream: #eae5d9;
+  --cream-dim: #c9c3b4;
+
+  --gold: var(--accent);
+  --gold-dark: var(--accent-dark);
+  --gold-glow: var(--accent-glow);
+  --border-gold: var(--accent);
+
+  --bg-dark: #212021;
+  --bg-darker: #1c1b1c;
+  --bg-deepest: #141314;
+  --bg-card: #333132;
+  --text-main: #eae5d9;
+  --text-dim: #c2bdb3;
+  --text-muted: #948f86;
+  --border-subtle: #3b3a3b;
+  --radius: 8px;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  --transition: 0.3s ease;
+
+  --fs-1: clamp(50px, 6.2vw, 96px);
+  --fs-2: clamp(41px, 4.6vw, 70px);
+  --fs-3: clamp(20px, 2.3vw, 35px);
+  --fs-body: clamp(16px, 1.15vw, 20px);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--accent-strong);
+  line-height: 1.15;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar nav ul li a,
+.site-footer h3 {
+  letter-spacing: 0.06em;
+}
+
+[data-lang='en'] {
+  --font-display: 'Modesto Condensed', 'Nodesto Caps Condensed', 'Forum', Georgia, serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-darker);
+}
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}

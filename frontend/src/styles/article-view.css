@@ -1,0 +1,315 @@
+.article-hero {
+  position: relative;
+  min-height: 58vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 160px 5% 70px;
+  background-size: cover;
+  background-position: center;
+}
+
+.article-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: var(--bg-dark);
+  pointer-events: none;
+  clip-path: polygon(
+    0 100%,
+    100% 100%,
+    100% 44%,
+    95% 66%,
+    90% 38%,
+    86% 59%,
+    81% 32%,
+    76% 62%,
+    71% 40%,
+    66% 70%,
+    61% 46%,
+    56% 74%,
+    51% 49%,
+    46% 78%,
+    41% 54%,
+    36% 34%,
+    31% 64%,
+    26% 42%,
+    21% 70%,
+    16% 48%,
+    11% 76%,
+    6% 44%,
+    0 66%
+  );
+}
+
+.article-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 10px 18px 0;
+  padding: 0 12px;
+  min-height: var(--control-h);
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  color: var(--cream);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  vertical-align: middle;
+  cursor: pointer;
+  transition:
+    background-color var(--btn-t-out) var(--motion-ease, ease),
+    border-color var(--btn-t-out) var(--motion-ease, ease),
+    color var(--btn-t-out) var(--motion-ease, ease),
+    box-shadow var(--btn-t-out) var(--motion-ease, ease);
+}
+
+.article-back:hover:not(:disabled) {
+  background-color: rgba(120, 129, 52, 0.22);
+  border-color: var(--accent);
+  transition-duration: var(--btn-t-in);
+}
+
+.article-back:active:not(:disabled) {
+  background-color: rgba(120, 129, 52, 0.34);
+  transition-duration: var(--btn-t-press);
+}
+
+.article-back:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 2px;
+}
+
+.article-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0 0 18px;
+  padding: 0 12px;
+  min-height: var(--control-h);
+  box-sizing: border-box;
+  background: rgba(155, 163, 66, 0.85);
+  border: 1px solid rgba(224, 217, 124, 1);
+  border-radius: 6px;
+  color: #3d3d18;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  vertical-align: middle;
+  transition:
+    background-color var(--btn-t-out) var(--motion-ease, ease),
+    border-color var(--btn-t-out) var(--motion-ease, ease),
+    color var(--btn-t-out) var(--motion-ease, ease),
+    box-shadow var(--btn-t-out) var(--motion-ease, ease);
+}
+
+.article-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-2);
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  text-shadow: 2px 2px 18px rgba(0, 0, 0, 0.9);
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.article-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.article-class {
+  color: var(--text-muted);
+}
+.article-updated {
+  color: var(--text-muted);
+}
+
+.article-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 24px 90px;
+}
+
+.article-page-state {
+  min-height: 60vh;
+  padding-top: 200px;
+  text-align: center;
+  color: var(--text-dim);
+}
+
+.article-page-state h2 {
+  margin-bottom: 12px;
+}
+.article-page-state p {
+  margin-bottom: 22px;
+}
+
+.article-content {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-main);
+}
+
+.article-content > * + * {
+  margin-top: 1.1em;
+}
+
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  font-family: var(--font-heading);
+  color: var(--accent-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 1.8em;
+}
+
+.article-content h2 {
+  font-size: 26px;
+}
+.article-content h3 {
+  font-size: 21px;
+}
+.article-content h4 {
+  font-size: 18px;
+}
+
+.article-content a {
+  color: var(--accent-strong);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-content a:hover {
+  color: #b3c25a;
+}
+
+.article-content ul,
+.article-content ol {
+  padding-left: 1.4em;
+}
+.article-content li + li {
+  margin-top: 0.45em;
+}
+
+.article-content blockquote {
+  padding: 4px 0 4px 20px;
+  border-left: 2px solid var(--accent);
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.article-content code {
+  font-family: var(--font-heading);
+  font-size: 0.92em;
+  padding: 2px 6px;
+  background: var(--bg-deepest);
+  border-radius: 3px;
+}
+
+.article-content pre {
+  padding: 16px 18px;
+  background: var(--bg-deepest);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+
+.article-content pre code {
+  padding: 0;
+  background: none;
+}
+
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-subtle);
+}
+
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.article-content th,
+.article-content td {
+  padding: 9px 12px;
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+}
+
+.article-content th {
+  background: rgba(120, 129, 52, 0.14);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.article-content hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.news-lead {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.article-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding-top: 26px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.article-owner-actions {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .article-hero {
+    padding: 130px 20px 60px;
+    min-height: 46vh;
+  }
+  .article-page {
+    padding: 40px 18px 70px;
+  }
+  .article-content {
+    font-size: 16px;
+  }
+}
